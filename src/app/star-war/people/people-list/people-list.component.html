@@ -1,0 +1,69 @@
+<form
+  align="center"
+  style="text-align: center"
+  [formGroup]="formGroup"
+  (ngSubmit)="doSearchDataChange()"
+>
+  <input
+    style="
+      border: none;
+      border: 1px solid rgb(144, 144, 236);
+      border-radius: 50px;
+      padding: 10px;
+      background: none;
+      color: #fff;
+      text-align: center;
+    "
+    type="text"
+    formControlName="search"
+    placeholder="Search"
+  />
+  <br /><br />
+  <div>
+    <button
+      type="button"
+      [disabled]="!data.previous"
+      (click)="doPageChange(data.previous)"
+    >
+      <span class="material-symbols-outlined"> arrow_back</span>
+    </button>
+    <span>
+      {{ formGroup.controls.page.value ? formGroup.controls.page.value : "1" }}
+      {{ pages }}
+    </span>
+    <button
+      type="button"
+      [disabled]="!data.next"
+      (click)="doPageChange(data.next)"
+    >
+      <span class="material-symbols-outlined"> arrow_forward </span>
+    </button>
+  </div>
+</form>
+
+<ul *ngIf="data.results.length > 0; else notfound">
+  <li
+    style="
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+      list-style: none;
+    "
+    *ngFor="let item of data.results"
+  >
+    {{ item.name }}
+  </li>
+</ul>
+
+<ng-template #notfound>
+  <div
+    style="
+      font-weight: bold;
+      font-size: 40px;
+      text-align: center;
+      list-style: none;
+    "
+  >
+    Not Found
+  </div>
+</ng-template>

@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+*{
+  font-family: sans-serif;
+}
+
+body{
+  background-color: #000;
+  color:gold;
+}
+
+a{
+  color: gold;
+}
+
+.star-war-link a{
+  font-family: 'Sahara';
+}
+
+
+nav ul li{
+  list-style: none;
+}
+
+nav ul li a{
+  text-decoration: none;
+}
+
