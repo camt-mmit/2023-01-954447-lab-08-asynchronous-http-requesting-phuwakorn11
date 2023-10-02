@@ -1,0 +1,12 @@
+<app-species-list
+  *ngIf="data$ | async as data; else loading"
+  [data]="data.data"
+  (searchDataChange)="doSearchDataChange($event)"
+  [searchData]="data.params"
+>
+</app-species-list>
+
+<ng-template #loading>
+  <br />
+  <div>Loading...</div>
+</ng-template>

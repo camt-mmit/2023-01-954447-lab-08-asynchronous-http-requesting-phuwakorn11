@@ -1,0 +1,4 @@
+<app-specie-view *ngIf="data$ | async as data; else loading" [data]="data">
+</app-specie-view>
+
+<ng-template #loading> Loading... </ng-template>

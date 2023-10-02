@@ -1,0 +1,4 @@
+<app-person-view *ngIf="data$ | async as data; else loading" [data]="data">
+</app-person-view>
+
+<ng-template #loading> Loading... </ng-template>

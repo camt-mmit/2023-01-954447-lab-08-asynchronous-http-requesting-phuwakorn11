@@ -1,0 +1,9 @@
+<ng-container *ngIf="tokenReady$ | async as tokenReady">
+  <ng-container *ngIf="tokenReady === 'ready'">
+    <router-outlet></router-outlet>
+  </ng-container>
+
+  <ng-container *ngIf="tokenReady === 'not-ready'">
+    <button type="button" (click)="login()">Login Google</button>
+  </ng-container>
+</ng-container>

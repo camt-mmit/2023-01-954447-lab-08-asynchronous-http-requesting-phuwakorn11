@@ -1,0 +1,5 @@
+<div *ngFor="let event of data.items">
+  <dt>{{ event.summary }}</dt>
+  <dd>{{ displayEventTimeRange(event) }}</dd>
+  <div>{{ event.description }}</div>
+</div>

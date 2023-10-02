@@ -1,0 +1,4 @@
+<app-planet-view *ngIf="data$ | async as data; else loading" [data]="data">
+</app-planet-view>
+
+<ng-template #loading> Loading... </ng-template>

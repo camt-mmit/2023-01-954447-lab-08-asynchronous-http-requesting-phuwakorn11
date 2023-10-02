@@ -64,4 +64,56 @@ Omit<Person, 'created' | 'edited' | 'url'>,
 }
 >;
 
+export interface species extends Resource{
+  classification: string; // -- The classification of this species, such as "mammal" or "reptile".
+  designation: string; //-- The designation of this species, such as "sentient".
+  average_height: string; //-- The average height of this species in centimeters.
+  average_lifespan: string; // -- The average lifespan of this species in years.
+  eye_colors: string;  //-- A comma-separated string of common eye colors for this species, "none" if this species does not typically have eyes.
+  hair_colors: string; // -- A comma-separated string of common hair colors for this species, "none" if this species does not typically have hair.
+  skin_colors: string; //-- A comma-separated string of common skin colors for this species, "none" if this species does not typically have skin.
+  language: string;  //-- The language commonly spoken by this species.
+  homeworld: URL | null ; // -- The URL of a planet resource, a planet that this species originates from.
+  people: string[]; //-- An array of People URL Resources that are a part of this species.
+  films: string[];  //-- An array of Film URL Resources that this species has appeared in.
+
+
+
+  }
+
+  export type rawSpecies = RawResource & Raw<
+Omit<species, 'created' | 'edited' | 'url'>,
+{
+  homeworld: string | null;
+  films: string[];
+  people: string[];
+}
+>;
+
+
+
+
+export interface planets extends Resource{
+
+  diameter: string; //-- The diameter of this planet in kilometers.
+  rotation_period: string; // -- The number of standard hours it takes for this planet to complete a single rotation on its axis.
+  orbital_period: string; //-- The number of standard days it takes for this planet to complete a single orbit of its local star.
+  gravity: string; //-- A number denoting the gravity of this planet, where "1" is normal or 1 standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5 standard Gs.
+  population: string; //-- The average population of sentient beings inhabiting this planet.
+  climate: string; //-- The climate of this planet. Comma separated if diverse.
+  terrain: string; //-- The terrain of this planet. Comma separated if diverse.
+  surface_water: string; //-- The percentage of the planet surface that is naturally occurring water or bodies of water.
+  residents: URL[]; //-- An array of People URL Resources that live on this planet.
+  films: URL[]; //-- An array of Film URL Resources that this planet has appeared in.
+
+
+}
+
+export type rawPlanets = RawResource & Raw<
+Omit<planets, 'created' | 'edited' | 'url'>,
+{
+  residents: string[];
+  people: string[];
+}
+>;
 

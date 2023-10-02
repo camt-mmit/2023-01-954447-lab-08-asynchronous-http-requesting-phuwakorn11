@@ -1,0 +1,75 @@
+<div class="box">
+  <div class="grid">
+    <div class="item">Name</div>
+    <div class="item">
+      {{ data.name }}
+    </div>
+
+    <div class="item">Diameter</div>
+    <div class="item">
+      {{ data.diameter }}
+    </div>
+
+    <div class="item">Rotation Period</div>
+    <div class="item">
+      {{ data.rotation_period }}
+    </div>
+
+    <div class="item">Orbital Period</div>
+    <div class="item">
+      {{ data.orbital_period }}
+    </div>
+
+    <div class="item">Gravity</div>
+    <div class="item">
+      {{ data.gravity }}
+    </div>
+
+    <div class="item">Population</div>
+    <div class="item">
+      {{ data.population }}
+    </div>
+
+    <div class="item">Climate</div>
+    <div class="item">
+      {{ data.climate }}
+    </div>
+
+    <div class="item">Terrain</div>
+    <div class="item">
+      {{ data.terrain }}
+    </div>
+
+    <div class="item">Surface Water</div>
+    <div class="item">
+      {{ data.surface_water }}
+    </div>
+
+    <div class="item">Create</div>
+    <div class="item">
+      {{ data.created | date: "medium" }}
+    </div>
+
+    <div class="item">Edited</div>
+    <div class="item">
+      {{ data.edited | date: "medium" }}
+    </div>
+  </div>
+</div>
+<style>
+  .box {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 25px;
+  }
+  .grid {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin: 0 auto;
+  }
+  .item:nth-child(odd) {
+    text-align: center;
+  }
+</style>

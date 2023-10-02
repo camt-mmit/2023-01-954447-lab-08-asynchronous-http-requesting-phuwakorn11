@@ -1,10 +1,15 @@
+<style>
+  li {
+    margin-bottom: 30px;
+  }
+</style>
 <h2
   style="
     -webkit-text-stroke: rgb(161, 161, 243) 2px;
     font-size: 50px;
     color: #000;
     text-align: center;
-    font-family: &quot;Star Wars&quot;, sans-serif;
+    font-family: &quot;Star Wars&quot;;
   "
 >
   Star War
@@ -23,6 +28,34 @@
         "
         routerLink="people"
         >People</a
+      >
+    </li>
+
+    <li routerLinkActive="app-st-active">
+      <a
+        style="
+          color: black;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 8px;
+          font-weight: bold;
+        "
+        routerLink="species"
+        >Species</a
+      >
+    </li>
+
+    <li routerLinkActive="app-st-active">
+      <a
+        style="
+          color: black;
+          background-color: #fff;
+          padding: 10px;
+          border-radius: 8px;
+          font-weight: bold;
+        "
+        routerLink="planets"
+        >Planets</a
       >
     </li>
   </ul>

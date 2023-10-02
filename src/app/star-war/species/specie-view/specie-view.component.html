@@ -1,0 +1,75 @@
+<div class="box">
+  <div class="grid">
+    <div class="item">Name</div>
+    <div class="item">
+      {{ data.name }}
+    </div>
+
+    <div class="item">Classification</div>
+    <div class="item">
+      {{ data.classification }}
+    </div>
+
+    <div class="item">Designation</div>
+    <div class="item">
+      {{ data.designation }}
+    </div>
+
+    <div class="item">Average Height</div>
+    <div class="item">
+      {{ data.average_height }}
+    </div>
+
+    <div class="item">Average Lifespan</div>
+    <div class="item">
+      {{ data.average_lifespan }}
+    </div>
+
+    <div class="item">Eye Colors</div>
+    <div class="item">
+      {{ data.eye_colors }}
+    </div>
+
+    <div class="item">Hair Colors</div>
+    <div class="item">
+      {{ data.hair_colors }}
+    </div>
+
+    <div class="item">Skin Colors</div>
+    <div class="item">
+      {{ data.skin_colors }}
+    </div>
+
+    <div class="item">Language</div>
+    <div class="item">
+      {{ data.language }}
+    </div>
+
+    <div class="item">Create</div>
+    <div class="item">
+      {{ data.created | date: "medium" }}
+    </div>
+
+    <div class="item">Edited</div>
+    <div class="item">
+      {{ data.edited | date: "medium" }}
+    </div>
+  </div>
+</div>
+<style>
+  .box {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 25px;
+  }
+  .grid {
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+    margin: 0 auto;
+  }
+  .item:nth-child(odd) {
+    text-align: center;
+  }
+</style>

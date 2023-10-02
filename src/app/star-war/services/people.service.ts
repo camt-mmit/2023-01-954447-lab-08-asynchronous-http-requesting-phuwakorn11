@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { parsePeopleList } from '../helper';
+import { parsePeopleList, parsePerson } from '../helper';
 import { List, Person, RawList, RawPerson, SearchData } from '../models';
 import { Observable, map } from 'rxjs';
 
@@ -20,4 +20,8 @@ export class PeopleService {
     );
   }
 
+  get(id:string): Observable<Person>{
+    return(
+      this.http.get<RawPerson>(`${url}/${id}`).pipe(map(parsePerson)));
+  }
 }
