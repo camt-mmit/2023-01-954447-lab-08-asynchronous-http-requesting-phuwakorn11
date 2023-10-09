@@ -1,11 +1,12 @@
 import { Injectable, inject } from '@angular/core';
-import { ConnectionsList, ConnectionsListParams, parseConnectionsList } from '../models';
+import { ConnectionsList, ConnectionsListParams,Person, PersonFormData, parseConnectionsList, parsePerson } from '../models';
 import { Observable, map, switchMap } from 'rxjs';
 import { TokenService } from './token.service';
 import { HttpClient } from '@angular/common/http';
 
 
 const url =  'https://people.googleapis.com/v1/people/me/connections' as const;
+const createUrl = 'https://people.googleapis.com/v1/people:createContact' as const;
 @Injectable({
   providedIn: 'root'
 })
@@ -27,17 +28,17 @@ export class ContactsService {
     );
   }
 
- /*
- create(eventFormData: EventFormData): Observable<>{
+
+ create(contactFormData: PersonFormData): Observable<Person>{
     return this.tokenService.getAuthorizationHeader().pipe(
-      switchMap((authorizationHeader) => this.http.post<EventResource>(url,eventFormData,{
+      switchMap((authorizationHeader) => this.http.post<Person>(createUrl,contactFormData,{
         headers: {
           Authorization: authorizationHeader,
         },
       })),
-      map(parseEventResource),
+      map(parsePerson),
     );
   }
- */
+
 
 }

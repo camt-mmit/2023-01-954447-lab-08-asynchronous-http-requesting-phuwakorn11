@@ -5,6 +5,7 @@ import { RequireTokenPageComponent } from "./pages/require-token-page/require-to
 import { EventListPageComponent } from "./pages/events/event-list-page/event-list-page.component";
 import { EventCreatePageComponent } from "./pages/events/event-create-page/event-create-page.component";
 import { ContactListPageComponent } from "./pages/contact/contact-list-page/contact-list-page.component";
+import { ContactCreatePageComponent } from "./pages/contact/contact-create-page/contact-create-page.component";
 
 
 export const routes: Routes = [
@@ -29,7 +30,7 @@ export const routes: Routes = [
           path: 'contacts',
           children: [
             {path: '',component: ContactListPageComponent},
-           // {path: 'create',component: EventCreatePageComponent},
+           {path: 'create',component: ContactCreatePageComponent},
 
         ],
         },

@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EventsService } from 'src/app/google/services/events.service';
-import { EventFormData } from 'src/app/google/models';
+import {  PersonFormData } from 'src/app/google/models';
 import { take } from 'rxjs';
 import { RouterOutlet } from '@angular/router';
 import { ContactFormComponent } from 'src/app/google/contacts/contact-form/contact-form.component';
+import { ContactsService } from 'src/app/google/services/contacts.service';
 
 
 @Component({
@@ -15,10 +15,10 @@ import { ContactFormComponent } from 'src/app/google/contacts/contact-form/conta
   styleUrls: ['./contact-create-page.component.scss']
 })
 export class ContactCreatePageComponent {
-  private readonly eventsService = inject(EventsService);
+  private readonly contactsService = inject(ContactsService);
 
-  protected onSubmit(eventFormData: EventFormData): void{
-    this.eventsService.create(eventFormData).pipe(
+  protected onSubmit(personFormData: PersonFormData): void{
+    this.contactsService.create(personFormData).pipe(
       take(1),
     ).subscribe(() => {
         history.back();

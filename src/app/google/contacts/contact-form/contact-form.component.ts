@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { EventFormData } from '../../models';
+import { PersonFormData } from '../../models';
 import { MatIconModule } from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -18,47 +18,44 @@ export class ContactFormComponent {
   private readonly fb = inject(FormBuilder).nonNullable;
   protected readonly formGroup = this.fb.group(
     {
-      summary: ['untitled', {
+      name: ['', {
         updateOn: 'blur'
       }],
-      start: [
-        new Date(),
-        {
-          updateOn: 'blur',
-        },
-      ],
-
-      end: [
-        new Date(),
-        {
-          updateOn: 'blur',
-        },
-        ],
-
+      email: ['', {
+        updateOn: 'blur'
+      }],
+      phone: ['', {
+        updateOn: 'blur'
+      }],
 
     }
   );
 
-  @Output() readonly dataChange = new EventEmitter<EventFormData>();
+  @Output() readonly dataChange = new EventEmitter<PersonFormData>();
 
   protected doSubmit(): void {
     if(this.formGroup.invalid) {
       return;
     }
     const formData = this.formGroup.getRawValue();
-    const [startDate] = formData.start.toISOString().split('T');
-    const [endDate] = formData.end.toISOString().split('T');
+
 
 
     this.dataChange.emit({
-      summary: formData.summary,
-      start: {
-        date:  startDate,
-      },
+      names: [{
+        givenName: formData.name,
+      }],
+      emailAddresses: [
+      {
+        value: formData.email,
+      }
+      ],
+      phoneNumbers: [
+        {
+          value: formData.phone,
+        }
+      ]
 
-      end: {
-        date:  endDate,
-      },
 
     });
   }

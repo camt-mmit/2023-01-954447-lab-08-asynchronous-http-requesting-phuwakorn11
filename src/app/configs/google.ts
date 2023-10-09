@@ -1,3 +1,4 @@
+import { isDevMode } from "@angular/core";
 import { Configuration } from "../google/models";
 
 export const configuration: Configuration = {
@@ -7,5 +8,7 @@ export const configuration: Configuration = {
     'https://www.googleapis.com/auth/calendar',
     'https://www.googleapis.com/auth/contacts',
   ],
-  redirect_uri: 'http://localhost:4200/google/authorization',
+  redirect_uri: isDevMode()
+    ? 'http://location:4200/google_authorization'
+    : 'https://camt-mmit.github.io/2023-01-954447-lab-08-asynchronous-http-requesting-phuwakorn11/google/authorization',
 };

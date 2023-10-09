@@ -13,8 +13,10 @@
       <div matListItemTitle>
         <img src="{{ urlPhotos(contact.photos ?? []) }}" alt="" />
       </div>
-      <div matListItemTitle>{{ displayName(contact.names ?? []) }}</div>
-      <div matListItemTitle>
+      <div matListItemLine>
+        {{ displayName(contact.names ?? []) }}
+      </div>
+      <div matListItemLine>
         {{ displayPhoneNumber(contact.phoneNumbers ?? []) }}
       </div>
       <div matListitemLine>

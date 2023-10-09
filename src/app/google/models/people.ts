@@ -331,6 +331,12 @@ export type Person = {
   userDefined?: UserDefined[];
 };
 
+export type PersonFormData = {
+  emailAddresses?: EmailAddress[];
+  names: Name[];
+  phoneNumbers: PhoneNumber[];
+}
+
 export type ConnectionsList = {
   connections: Person[];
   nextPageToken: string;
