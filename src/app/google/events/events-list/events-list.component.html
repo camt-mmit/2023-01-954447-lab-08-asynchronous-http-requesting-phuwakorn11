@@ -3,3 +3,14 @@
   <dd>{{ displayEventTimeRange(event) }}</dd>
   <div>{{ event.description }}</div>
 </div>
+
+<div class="box">
+  <mat-list>
+    <mat-list-item *ngFor="let event of data.items">
+      <mat-icon matListItemIcon> </mat-icon>
+      <div matListItemTitle>{{ event.summary }}</div>
+      <div matListitemLine>{{ displayEventTimeRange(event) }}</div>
+      <p mathListItemLine>{{ event.description }}</p>
+    </mat-list-item>
+  </mat-list>
+</div>

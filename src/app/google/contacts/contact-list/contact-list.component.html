@@ -1,0 +1,25 @@
+<!--
+<div *ngFor="let event of data.items">
+  <dt>{{ event.summary }}</dt>
+  <dd>{{ displayEventTimeRange(event) }}</dd>
+  <div>{{ event.description }}</div>
+</div>
+-->
+
+<div class="box">
+  <mat-list>
+    <mat-list-item *ngFor="let contact of data.connections">
+      <mat-icon matListItemIcon> </mat-icon>
+      <div matListItemTitle>
+        <img src="{{ urlPhotos(contact.photos ?? []) }}" alt="" />
+      </div>
+      <div matListItemTitle>{{ displayName(contact.names ?? []) }}</div>
+      <div matListItemTitle>
+        {{ displayPhoneNumber(contact.phoneNumbers ?? []) }}
+      </div>
+      <div matListitemLine>
+        {{ displayEmailAddress(contact.emailAddresses ?? []) }}
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

@@ -1,33 +1,34 @@
 import { Injectable, inject } from '@angular/core';
+import { ConnectionsList, ConnectionsListParams, parseConnectionsList } from '../models';
 import { Observable, map, switchMap } from 'rxjs';
-import { EventFormData, EventQueryParams, EventResource, EventsList, parseEventResource, parseEventsList } from '../models';
 import { TokenService } from './token.service';
 import { HttpClient } from '@angular/common/http';
 
 
-const url =  'https://www.googleapis.com/calendar/v3/calendars/primary/events' as const;
-
+const url =  'https://people.googleapis.com/v1/people/me/connections' as const;
 @Injectable({
   providedIn: 'root'
 })
-export class EventsService {
+export class ContactsService {
   private readonly tokenService = inject(TokenService);
   private readonly http = inject(HttpClient);
 
-  getAll(params?: EventQueryParams): Observable<EventsList>{
+  getAll(params?: ConnectionsListParams): Observable<ConnectionsList>{
     return this.tokenService.getAuthorizationHeader().pipe(
       switchMap((authorizationHeader) =>
-      this.http.get<EventsList>(url,{
+      this.http.get<ConnectionsList>(url,{
         headers:{
             Authorization: authorizationHeader,
         },
         params,
   })
       ),
-      map(parseEventsList)
+      map(parseConnectionsList)
     );
   }
-  create(eventFormData: EventFormData): Observable<EventResource>{
+
+ /*
+ create(eventFormData: EventFormData): Observable<>{
     return this.tokenService.getAuthorizationHeader().pipe(
       switchMap((authorizationHeader) => this.http.post<EventResource>(url,eventFormData,{
         headers: {
@@ -37,4 +38,6 @@ export class EventsService {
       map(parseEventResource),
     );
   }
+ */
+
 }
